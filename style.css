@@ -108,7 +108,7 @@ body {
 
 .navbar_container,
 .header-top-item,
-/* .header .btn { display: none; } */
+.header .btn { display: none; }
 
 .header-top-list,
 .header-top-list .social-list {
