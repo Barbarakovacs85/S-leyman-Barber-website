@@ -5,14 +5,14 @@ const addEventOnElem = function (elem, type, callback) {
         for (let i = 0; i < elem.length; i++) {
             elem[i].addEventListener(type, callback);
         }
-    }else {
+    } else {
         elem.addEventListener(type, callback);
     }
 }
 
 const navbar = document.querySelector("[data-navbar]");
-const navToggler = document.querySelector("[data-nav-toggler");
-const navLinks = document.querySelectorAll("fdata-nav-Links");
+const navToggler = document.querySelector("[data-nav-toggler]");
+const navLinks = document.querySelectorAll("[data-nav-link]");
 
 const toggleNavbar = () => navbar.classList.toggle("active");
 
@@ -20,4 +20,16 @@ addEventOnElem(navToggler, "click", toggleNavbar);
 
 const closeNavbar = () => navbar.classList.remove("active");
 
-addEventOnElem(navLinks, "click", closeNavbar);
+navLinks.forEach(link => addEventOnElem(link, "click", closeNavbar));
+
+
+const header = document.querySelector("[data-header]");
+const headerActive = function () {
+    if (window.scrollY > 100) {
+        header.classList.add("active");
+    }else {
+        header.classList.remove("active");
+    }
+}
+
+addEventOnElem(window, "scroll", headerActive)
